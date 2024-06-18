@@ -19,6 +19,7 @@ export default function IamgePicker(props) {
         console.log(file)
 
         if (!file) {
+            setPickedImage(null);
             return;
         }
 
@@ -47,17 +48,18 @@ export default function IamgePicker(props) {
                         )}
                     </div>
                     <input
-                    className={classes.input}
-                    type="file" 
-                    id={props.name}
-                    accept="image/png, image/jpeg" 
-                    name={props.name}
-                    ref={imageInput}
-                    onChange={handleImagechange}
+                        className={classes.input}
+                        type="file" 
+                        id={props.name}
+                        accept="image/png, image/jpeg" 
+                        name={props.name}
+                        ref={imageInput}
+                        onChange={handleImagechange}
+                        required
                     />
                     <button className={classes.button} 
-                    type='button'
-                    onClick={handleIamgeClick}
+                        type='button'
+                        onClick={handleIamgeClick}
                     >Pick an Image</button>
                 </div>
             </div>
