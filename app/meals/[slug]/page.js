@@ -4,13 +4,24 @@ import classes from './page.module.css'
 import { getMeal } from '@/lib/meals'
 import { notFound } from 'next/navigation'
 
+export async function  generateMetadata (props) {
+    let mealmeta = getMeal(props.params.slug);
+
+    if (!mealmeta) {
+        notFound();
+    }
+
+    return {
+        title: mealmeta.title,
+        description: mealmeta.summary,
+    }
+};
+
 export default function Plates (props) {
 
     const meal = getMeal(props.params.slug)
 
-    if (!meal) {
-        notFound();
-    }
+
     
     let instructions = meal.instructions.replace(/\n/g, '<br />');
 

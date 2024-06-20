@@ -5,12 +5,17 @@ import MealsGrid from '../components/meals/meals-grid'
 
 import { getMeals } from '../../lib/meals'
 
+export const metadata = {
+    title: 'All Meals',
+    description: 'Browse delicious meals shared by our food-loving community.',
+  };
+
 async function MealsDisplay() {
     const meals =  await getMeals();
     return <MealsGrid meals={meals} />
 }
 
-export default function Meals () {
+export default function Meals() {
 
     
 
